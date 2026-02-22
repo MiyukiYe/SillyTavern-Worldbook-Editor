@@ -8,23 +8,34 @@
 
 * 🚀 **极致流畅的本地编辑**：纯本地原生 GUI 程序，彻底摆脱网页端渲染长文本时的卡顿噩梦。
 * 🎨 **现代高颜值 UI**：采用 `customtkinter` 打造的纯正 Dark Mode（深色模式），自动唤醒 Windows 底层高 DPI 缩放，文字渲染如矢量般锐利，护眼且优雅。
+<img width="863" height="584" alt="Snipaste_2026-02-22_20-59-28" src="https://github.com/user-attachments/assets/419774d1-9312-4c02-9ec1-cb185e1aa0fc" />
+
 * 🔍 **全局搜索 & 高亮替换**：
 * 左侧列表支持对**标题、触发词、正文**进行深层全局检索。
+<img width="182" height="519" alt="Snipaste_2026-02-22_21-01-11" src="https://github.com/user-attachments/assets/f7822873-e2e5-466e-991a-60ac6aaadfb5" />
+
 * 右侧编辑器自带“查找与替换”功能，目标内容**红底白字**醒目高亮，替换成功**蓝底白字**即时反馈。
+<img width="668" height="519" alt="Snipaste_2026-02-22_21-01-55" src="https://github.com/user-attachments/assets/e678b773-0054-4de6-a0a8-b4fab1292165" />
+
 
 
 * 🖱️ **丝滑的条目排序**：
 * 支持**鼠标按住直接拖拽**左侧列表进行排序。
 * 提供【📌 移至】功能，输入序号即可让条目一键跨越百行“瞬移”。（所有位置调整将完美同步至底层 JSON 键值）。
+<img width="442" height="184" alt="Snipaste_2026-02-22_21-02-50" src="https://github.com/user-attachments/assets/59658a26-7a63-44da-83fa-af947c5afde5" />
 
 
 * 🀄 **一键简繁转换**：内置 `zhconv` 引擎，一键将上万字的正文在“简体中文”和“繁体中文”间无缝切换，再也不用复制到外部网页处理了。
-* 🛡️ **企业级数据护航**：
+<img width="363" height="1038" alt="image" src="https://github.com/user-attachments/assets/e908eace-3968-4be9-817f-4a9a0e94bdb8" />
+
+* 🛡️ **数据护航**：
 * **自动备份**：每次打开世界书时，会在同目录下自动生成一份带有时间戳的 `_backup` 备份文件，误删也能随时回档。
 * **防丢拦截**：实时追踪修改状态（标题栏 `🔴 *` 提示）。意外点击右上角“X”关闭时，会强制拦截并弹出“保存/另存为”确认框，保护你的灵感心血。
+<img width="338" height="127" alt="Snipaste_2026-02-22_21-03-48" src="https://github.com/user-attachments/assets/43435169-49ca-43da-9018-aeffa646101b" />
 
 
 * 📁 **全生命周期管理**：支持从零**新建**空白世界书结构，也支持将不同分支结局的设定**另存为**新文件。
+<img width="1725" height="1159" alt="image" src="https://github.com/user-attachments/assets/041bce08-2d56-4a67-8c01-6bede8b8b955" />
 
 ## 📥 下载与使用 (How to Use)
 
