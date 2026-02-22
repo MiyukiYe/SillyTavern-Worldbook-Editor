@@ -101,7 +101,9 @@ pyinstaller --noconsole --onefile --hidden-import zhconv --collect-all customtki
 
 **网页端v1.0 (当前版本)**
 
-* 与本地端功能一致。
+* 与本地端功能基本一致。
+* 无自动备份功能。
+* 无新建世界书功能。
 
 ## 🤝 贡献与反馈
 
