@@ -26,7 +26,7 @@
 
 
 * 🀄 **一键简繁转换**：内置 `zhconv` 引擎，一键将上万字的正文在“简体中文”和“繁体中文”间无缝切换，再也不用复制到外部网页处理了。
-<img width="363" height="1038" alt="image" src="https://github.com/user-attachments/assets/e908eace-3968-4be9-817f-4a9a0e94bdb8" />
+<img width="668" height="519" alt="Snipaste_2026-02-22_21-03-29" src="https://github.com/user-attachments/assets/02ceadd3-0a03-4d28-9184-3667f4ab765e" />
 
 * 🛡️ **数据护航**：
 * **自动备份**：每次打开世界书时，会在同目录下自动生成一份带有时间戳的 `_backup` 备份文件，误删也能随时回档。
