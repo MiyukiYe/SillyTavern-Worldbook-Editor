@@ -47,23 +47,17 @@
    ```bash
    git clone [https://github.com/你的用户名/ST_WorldInfo_Editor.git](https://github.com/你的用户名/ST_WorldInfo_Editor.git)
    cd ST_WorldInfo_Editor
-
-```
+   ```
 
 2. 安装必要的依赖库：
    ```bash
    pip install PySide6 zhconv
-
-```
-
+   ```
 
 3. 运行主程序：
    ```bash
    python main.py
-
-```
-
-
+   ```
 
 ---
 
