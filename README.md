@@ -46,8 +46,8 @@
 确保你已安装 Python 3.10 或更高版本。
 1. 克隆本仓库到本地：
    ```bash
-   git clone [https://github.com/你的用户名/ST_WorldInfo_Editor.git](https://github.com/你的用户名/ST_WorldInfo_Editor.git)
-   cd ST_WorldInfo_Editor
+   git clone [https://github.com/你的用户名/SillyTavern-Worldinfo-Editor.git](https://github.com/你的用户名/SillyTavern-Worldinfo-Editor.git)
+   cd SillyTavern-Worldinfo-Editor
    ```
 
 2. 安装必要的依赖库：
@@ -68,7 +68,7 @@
 
 ```bash
 pip install pyinstaller
-pyinstaller -F -w -i icon.ico main.py
+pyinstaller -F -w -i icon.ico --collect-data zhconv main.py
 ```
 
 打包完成的文件将生成在 `dist` 目录下。
