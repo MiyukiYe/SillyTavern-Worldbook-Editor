@@ -12,29 +12,26 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget,
                                QCheckBox, QSpinBox, QMessageBox, QTabWidget, QComboBox,
                                QPushButton, QAbstractItemView, QDialog, QInputDialog, QFrame, QLabel)
 
-# ================= 现代蓝白主题 QSS 样式表 =================
+# ================= 现代蓝白主题 (日间模式) =================
 MODERN_BLUE_THEME = """
-/* 全局字体和基础设定 */
-* {
+/* 使用 QWidget 替代 *，避免过度覆盖特定的控件属性 */
+QWidget {
     font-family: "Segoe UI Variable", "Microsoft YaHei", "PingFang SC", sans-serif;
     font-size: 13px;
     color: #2C3E50;
     outline: none;
 }
 
-/* 主窗口背景色 - 淡雅的浅蓝白 */
 QMainWindow, QDialog {
     background-color: #F2F7FB; 
 }
 
-/* 所有的面板容器白底、圆角 */
 #SidePanel, #MainTabs::pane {
     background-color: #FFFFFF;
     border-radius: 10px;
     border: 1px solid #E1E8EE;
 }
 
-/* ================= 文本框、数字框和下拉菜单 ================= */
 QLineEdit, QTextEdit, QSpinBox, QComboBox {
     background-color: #F8FAFC;
     border: 1px solid #D2DCE6;
@@ -53,7 +50,6 @@ QLineEdit:focus, QTextEdit:focus, QSpinBox:focus, QComboBox:focus {
     background-color: #FFFFFF;
 }
 
-/* 下拉菜单特调 */
 QComboBox::drop-down {
     subcontrol-origin: padding;
     subcontrol-position: top right;
@@ -69,7 +65,6 @@ QComboBox QAbstractItemView {
     padding: 4px;
 }
 
-/* ================= 按钮样式 (优雅动态) ================= */
 QPushButton {
     background-color: #59B4FF;
     color: #FFFFFF;
@@ -89,7 +84,6 @@ QPushButton:pressed {
     padding-bottom: 7px;
 }
 
-/* 次要操作按钮 (如查找替换) */
 QPushButton#SecondaryBtn {
     background-color: #F0F4F8;
     color: #59B4FF;
@@ -100,7 +94,6 @@ QPushButton#SecondaryBtn:hover {
     border: 1px solid #59B4FF;
 }
 
-/* ================= 左侧列表样式 ================= */
 QListWidget {
     background-color: transparent;
     border: none;
@@ -120,7 +113,6 @@ QListWidget::item:selected {
     font-weight: bold;
 }
 
-/* ================= 标签页样式 ================= */
 QTabWidget::pane {
     top: -1px; 
 }
@@ -140,7 +132,6 @@ QTabBar::tab:selected {
     border-bottom: 3px solid #59B4FF;
 }
 
-/* ================= 复选框样式 ================= */
 QCheckBox {
     spacing: 8px;
 }
@@ -157,15 +148,13 @@ QCheckBox::indicator:hover {
 QCheckBox::indicator:checked {
     background: #59B4FF;
     border: 1px solid #59B4FF;
-    image: url(); 
 }
 
-/* ================= 滚动条样式 ================= */
 QScrollBar:vertical {
     border: none;
     background: transparent;
     width: 8px;
-    margin: 0px 0px 0px 0px;
+    margin: 0px;
 }
 QScrollBar::handle:vertical {
     background: #CBD5E1;
@@ -178,6 +167,208 @@ QScrollBar::handle:vertical:hover {
 QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
     height: 0px;
 }
+
+/* 顶部菜单栏 */
+QMenuBar {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #D2DCE6;
+}
+QMenuBar::item:selected {
+    background-color: #F2F7FB;
+}
+QMenu {
+    background-color: #FFFFFF;
+    border: 1px solid #D2DCE6;
+}
+QMenu::item:selected {
+    background-color: #59B4FF;
+    color: #FFFFFF;
+}
+
+/* 强化的表单标题 */
+QLabel#FormLabel, QCheckBox#FormLabel {
+    font-weight: bold;
+    color: #34495E;
+}
+"""
+
+# ================= 深邃暗黑主题 (夜间模式) =================
+DARK_THEME = """
+QWidget {
+    font-family: "Segoe UI Variable", "Microsoft YaHei", "PingFang SC", sans-serif;
+    font-size: 13px;
+    color: #E0E0E0;
+    outline: none;
+}
+
+QMainWindow, QDialog {
+    background-color: #121212; 
+}
+
+#SidePanel, #MainTabs::pane {
+    background-color: #1E1E1E;
+    border-radius: 10px;
+    border: 1px solid #333333;
+}
+
+QLineEdit, QTextEdit, QSpinBox, QComboBox {
+    background-color: #2D2D30;
+    border: 1px solid #3E3E42;
+    border-radius: 6px;
+    padding: 6px 10px;
+    selection-background-color: #007ACC;
+    color: #E0E0E0;
+}
+
+QLineEdit:hover, QTextEdit:hover, QSpinBox:hover, QComboBox:hover {
+    border: 1px solid #007ACC;
+    background-color: #333337;
+}
+
+QLineEdit:focus, QTextEdit:focus, QSpinBox:focus, QComboBox:focus {
+    border: 2px solid #007ACC;
+    background-color: #1E1E1E;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+    border-left: none;
+}
+QComboBox QAbstractItemView {
+    border: 1px solid #3E3E42;
+    border-radius: 6px;
+    background-color: #2D2D30;
+    selection-background-color: #3E3E42;
+    selection-color: #59B4FF;
+    padding: 4px;
+    color: #E0E0E0;
+}
+
+QPushButton {
+    background-color: #007ACC;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #1F8AD2;
+}
+
+QPushButton:pressed {
+    background-color: #005A9E;
+    padding-top: 9px; 
+    padding-bottom: 7px;
+}
+
+QPushButton#SecondaryBtn {
+    background-color: #2D2D30;
+    color: #007ACC;
+    border: 1px solid #3E3E42;
+}
+QPushButton#SecondaryBtn:hover {
+    background-color: #3E3E42;
+    border: 1px solid #007ACC;
+}
+
+QListWidget {
+    background-color: transparent;
+    border: none;
+}
+QListWidget::item {
+    padding: 10px;
+    margin: 2px 5px;
+    border-radius: 6px;
+    color: #CCCCCC;
+}
+QListWidget::item:hover {
+    background-color: #2A2D30;
+}
+QListWidget::item:selected {
+    background-color: #007ACC;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+QTabWidget::pane {
+    top: -1px; 
+}
+QTabBar::tab {
+    background: transparent;
+    color: #858585;
+    padding: 10px 20px;
+    border-bottom: 3px solid transparent;
+    font-size: 14px;
+    font-weight: bold;
+}
+QTabBar::tab:hover {
+    color: #007ACC;
+}
+QTabBar::tab:selected {
+    color: #007ACC;
+    border-bottom: 3px solid #007ACC;
+}
+
+QCheckBox {
+    spacing: 8px;
+}
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1px solid #3E3E42;
+    background: #2D2D30;
+}
+QCheckBox::indicator:hover {
+    border: 1px solid #007ACC;
+}
+QCheckBox::indicator:checked {
+    background: #007ACC;
+    border: 1px solid #007ACC;
+}
+
+QScrollBar:vertical {
+    border: none;
+    background: transparent;
+    width: 8px;
+    margin: 0px;
+}
+QScrollBar::handle:vertical {
+    background: #424242;
+    min-height: 20px;
+    border-radius: 4px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #686868;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+QMenuBar {
+    background-color: #1E1E1E;
+    border-bottom: 1px solid #333333;
+}
+QMenuBar::item:selected {
+    background-color: #333337;
+}
+QMenu {
+    background-color: #1E1E1E;
+    border: 1px solid #333333;
+}
+QMenu::item:selected {
+    background-color: #007ACC;
+    color: #FFFFFF;
+}
+
+QLabel#FormLabel, QCheckBox#FormLabel {
+    font-weight: bold;
+    color: #CCCCCC;
+}
 """
 
 # ================= 自定义组件: 独立大窗口编辑器 =================
@@ -185,21 +376,19 @@ class PopoutEditorDialog(QDialog):
     def __init__(self, initial_text, parent=None):
         super().__init__(parent)
         self.setWindowTitle("沉浸式内容编辑器 - 支持自由调整窗口与字体大小")
-        self.resize(800, 600) # 默认给一个大视窗
-        # 允许最大化和最小化
+        self.resize(800, 600) 
         self.setWindowFlags(self.windowFlags() | Qt.WindowMaximizeButtonHint | Qt.WindowMinimizeButtonHint)
 
         layout = QVBoxLayout(self)
         layout.setContentsMargins(15, 15, 15, 15)
         layout.setSpacing(10)
 
-        # 顶部工具栏：调节字体大小
         toolbar = QHBoxLayout()
         toolbar.addWidget(QLabel("🔠 字体大小:"))
         
         self.font_spinbox = QSpinBox()
         self.font_spinbox.setRange(8, 72)
-        self.font_spinbox.setValue(16) # 独立窗口默认字号设为更舒适的16号
+        self.font_spinbox.setValue(16) 
         self.font_spinbox.valueChanged.connect(self.change_font)
         toolbar.addWidget(self.font_spinbox)
         
@@ -211,17 +400,14 @@ class PopoutEditorDialog(QDialog):
 
         layout.addLayout(toolbar)
 
-        # 核心编辑区
         self.text_edit = QTextEdit()
         self.text_edit.setPlainText(initial_text)
         self.change_font(self.font_spinbox.value())
         layout.addWidget(self.text_edit)
 
     def change_font(self, size):
-        """实时改变输入框的字体大小"""
-        font = self.text_edit.font()
-        font.setPointSize(size)
-        self.text_edit.setFont(font)
+        # [修复] 通过局部注入 QSS 强制提升优先级，覆盖全局字号限制
+        self.text_edit.setStyleSheet(f"QTextEdit {{ font-size: {size}pt; }}")
 
     def get_text(self):
         return self.text_edit.toPlainText()
@@ -262,7 +448,6 @@ class ContentEditorWidget(QWidget):
         self.btn_replace_all = QPushButton("全部替换")
         self.btn_replace_all.setObjectName("SecondaryBtn")
 
-        # 新增：打开独立窗口的按钮
         self.btn_popout = QPushButton("🗔 独立窗口编辑")
         self.btn_popout.setObjectName("SecondaryBtn")
 
@@ -282,18 +467,17 @@ class ContentEditorWidget(QWidget):
         self.btn_find.clicked.connect(self.find_next)
         self.btn_replace.clicked.connect(self.replace_current)
         self.btn_replace_all.clicked.connect(self.replace_all)
-        self.btn_popout.clicked.connect(self.open_popout) # 绑定弹窗事件
+        self.btn_popout.clicked.connect(self.open_popout) 
         self.find_input.textChanged.connect(self.highlight_all) 
         self.text_edit.textChanged.connect(self.textChanged.emit)
 
     def open_popout(self):
-        """呼出沉浸式大窗口编辑器"""
+        # 传入 self 作为 parent，让子窗口继承主窗口的主题(暗黑/日间)
         dialog = PopoutEditorDialog(self.text_edit.toPlainText(), self)
         if dialog.exec() == QDialog.Accepted:
-            # 如果点击了确认，则将大窗口里的文本同步回这里的输入框
             self.text_edit.setPlainText(dialog.get_text())
-            self.highlight_all() # 重新触发高亮逻辑
-            self.textChanged.emit() # 触发修改保存机制
+            self.highlight_all() 
+            self.textChanged.emit() 
 
     def highlight_all(self):
         search_text = self.find_input.text()
@@ -325,7 +509,7 @@ class ContentEditorWidget(QWidget):
         cursor = self.text_edit.textCursor()
         if cursor.hasSelection() and cursor.selectedText() == self.find_input.text():
             fmt = QTextCharFormat()
-            fmt.setBackground(QColor("#59B4FF")) 
+            fmt.setBackground(QColor("#007ACC")) 
             fmt.setForeground(QColor("#FFFFFF"))
             cursor.insertText(self.replace_input.text(), fmt)
             self.highlight_all() 
@@ -340,7 +524,7 @@ class ContentEditorWidget(QWidget):
         cursor.beginEditBlock()
         count = 0
         fmt = QTextCharFormat()
-        fmt.setBackground(QColor("#59B4FF"))
+        fmt.setBackground(QColor("#007ACC"))
         fmt.setForeground(QColor("#FFFFFF"))
         
         while not cursor.isNull() and not cursor.atEnd():
@@ -397,7 +581,8 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("SillyTavern 世界书本地编辑器")
         self.resize(1150, 800)
 
-        # 注入全局 QSS 主题
+        # 状态标记
+        self.is_dark_mode = False 
         self.setStyleSheet(MODERN_BLUE_THEME)
 
         self.current_file_path = None
@@ -410,14 +595,13 @@ class MainWindow(QMainWindow):
 
         main_widget = QWidget()
         self.setCentralWidget(main_widget)
-        # 增加主窗口的外边距和组件间距，让界面呼吸感更强
         layout = QHBoxLayout(main_widget)
         layout.setContentsMargins(20, 20, 20, 20)
         layout.setSpacing(20)
 
-        # ====== 左侧面板 (封装为独立带有背景的 QFrame) ======
+        # ====== 左侧面板 ======
         left_panel = QFrame()
-        left_panel.setObjectName("SidePanel") # 用于QSS匹配白底
+        left_panel.setObjectName("SidePanel") 
         left_panel.setFixedWidth(300)
         left_layout = QVBoxLayout(left_panel)
         left_layout.setContentsMargins(15, 15, 15, 15)
@@ -433,7 +617,7 @@ class MainWindow(QMainWindow):
         btn_layout1 = QHBoxLayout()
         self.btn_add = QPushButton("➕ 新增")
         self.btn_del = QPushButton("❌ 删除")
-        self.btn_del.setObjectName("SecondaryBtn") # 删除按钮样式变淡
+        self.btn_del.setObjectName("SecondaryBtn") 
         self.btn_move = QPushButton("📍 移至...")
         self.btn_move.setObjectName("SecondaryBtn")
         btn_layout1.addWidget(self.btn_add)
@@ -446,8 +630,14 @@ class MainWindow(QMainWindow):
         self.btn_trad = QPushButton("🇭🇰 繁")
         self.btn_simp.setObjectName("SecondaryBtn")
         self.btn_trad.setObjectName("SecondaryBtn")
+        
+        # [新增] 日间/暗黑模式切换按钮
+        self.btn_theme = QPushButton("🌙 暗黑模式")
+        self.btn_theme.setObjectName("SecondaryBtn")
+
         btn_layout2.addWidget(self.btn_simp)
         btn_layout2.addWidget(self.btn_trad)
+        btn_layout2.addWidget(self.btn_theme)
         left_layout.addLayout(btn_layout2)
 
         layout.addWidget(left_panel)
@@ -470,6 +660,17 @@ class MainWindow(QMainWindow):
         self.btn_move.clicked.connect(self.move_to_index)
         self.btn_simp.clicked.connect(lambda: self.convert_chinese('zh-cn'))
         self.btn_trad.clicked.connect(lambda: self.convert_chinese('zh-tw'))
+        self.btn_theme.clicked.connect(self.toggle_theme)
+
+    def toggle_theme(self):
+        """日夜模式一键切换逻辑"""
+        self.is_dark_mode = not self.is_dark_mode
+        if self.is_dark_mode:
+            self.setStyleSheet(DARK_THEME)
+            self.btn_theme.setText("☀️ 日间模式")
+        else:
+            self.setStyleSheet(MODERN_BLUE_THEME)
+            self.btn_theme.setText("🌙 暗黑模式")
 
     def set_modified(self):
         if not self.is_modified:
@@ -480,8 +681,6 @@ class MainWindow(QMainWindow):
 
     def create_menu(self):
         menubar = self.menuBar()
-        # 顶部菜单栏背景修饰
-        menubar.setStyleSheet("background-color: #FFFFFF; border-bottom: 1px solid #D2DCE6;")
         file_menu = menubar.addMenu("文件 (File)")
 
         new_action = QAction("新建", self)
@@ -554,16 +753,11 @@ class MainWindow(QMainWindow):
 
         if label: 
             label_widget = layout.labelForField(w)
+            # 通过绑定 ObjectName，让 QSS 自动接管主题颜色的变换，杜绝 Hardcode 报错
             if label_widget:
-                font = label_widget.font()
-                font.setBold(True)
-                label_widget.setFont(font)
-                label_widget.setStyleSheet("color: #34495E;")
+                label_widget.setObjectName("FormLabel")
             elif isinstance(w, QCheckBox):
-                font = w.font()
-                font.setBold(True)
-                w.setFont(font)
-                w.setStyleSheet("color: #34495E;")
+                w.setObjectName("FormLabel")
 
         self.field_map[json_key] = {'widget': w, 'type': widget_type, 'label_widget': label_widget}
 
