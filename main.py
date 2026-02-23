@@ -965,17 +965,24 @@ class MainWindow(QMainWindow):
         new_data["uid"] = int(new_id)
         
         suffix = " - 简" if target_lang == 'zh-cn' else " - 繁"
-        if conv_title:
-            new_data["comment"] = zhconv.convert(new_data.get("comment", ""), target_lang) + suffix
-        else:
-            new_data["comment"] = new_data.get("comment", "") + suffix
-            
-        if conv_keys:
-            new_data["key"] = [zhconv.convert(k, target_lang) for k in new_data.get("key", [])]
-            new_data["keysecondary"] = [zhconv.convert(k, target_lang) for k in new_data.get("keysecondary", [])]
-            
-        if conv_content:
-            new_data["content"] = zhconv.convert(new_data.get("content", ""), target_lang)
+
+        # =============== 增加异常捕获，防止因为打包丢失文件导致静默崩溃 ===============
+        try:
+            if conv_title:
+                new_data["comment"] = zhconv.convert(new_data.get("comment", ""), target_lang) + suffix
+            else:
+                new_data["comment"] = new_data.get("comment", "") + suffix
+                
+            if conv_keys:
+                new_data["key"] = [zhconv.convert(k, target_lang) for k in new_data.get("key", [])]
+                new_data["keysecondary"] = [zhconv.convert(k, target_lang) for k in new_data.get("keysecondary", [])]
+                
+            if conv_content:
+                new_data["content"] = zhconv.convert(new_data.get("content", ""), target_lang)
+        except Exception as e:
+            QMessageBox.critical(self, "转换失败", f"简繁转换过程中发生错误 (可能是打包时丢失了字典文件)：\n{str(e)}")
+            return
+        # ========================================================================
 
         keys_list = list(self.world_info_data.keys())
         insert_idx = keys_list.index(original_key) + 1
