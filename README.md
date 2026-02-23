@@ -6,8 +6,7 @@
 
 当 SillyTavern 的世界书条目积累到几百甚至上千条时，基于浏览器前端 DOM 的渲染会遭遇严重的性能瓶颈，导致网页端在打字、滚动和保存时出现令人抓狂的卡顿。
 本项目旨在提供一个**脱离网页端**的轻量级原生桌面化解决方案，用极其丝滑的响应速度和现代化的 UI，彻底解放你的创作生产力！
-
-![UI Screenshot](./screenshot.png) *(提示：请在这里放一张你软件运行时的精美截图)*
+<img width="2560" height="1528" alt="image" src="https://github.com/user-attachments/assets/e08c9447-b54a-4b30-b2c9-d1e83eecb90f" />
 
 ## ✨ 核心特性
 
