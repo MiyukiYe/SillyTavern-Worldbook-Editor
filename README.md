@@ -51,15 +51,15 @@
 ```
 
 2. 安装必要的依赖库：
-```bash
-pip install PySide6 zhconv
+   ```bash
+   pip install PySide6 zhconv
 
 ```
 
 
 3. 运行主程序：
-```bash
-python main.py
+   ```bash
+   python main.py
 
 ```
 
